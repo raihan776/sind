@@ -1,6 +1,11 @@
+<html>
+  <head>
+    <title>Tes</title>
+  </head>
+  <body>
 <?php
-Haloo Tes
-
-
-
+echo Haloo Tes
 ?>
+    
+  </body>
+</html>
