@@ -3,7 +3,7 @@
     <title>Tes</title>
   </head>
   <body>
-<h4>hiiiii</h4>
+<h4><?php echo Hello ?></h4>
     
   </body>
 </html>
