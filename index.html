@@ -3,73 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beranda</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-        }
-
-        nav {
-            margin: 20px;
-            text-align: center;
-        }
-
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #333;
-        }
-
-        .content {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+    <title>Contoh CURL dengan JavaScript</title>
 </head>
 <body>
+    <h1>Contoh CURL dengan JavaScript</h1>
+    <button id="fetchDataButton">Fetch Data</button>
+    <div id="result"></div>
 
-<header>
-    <h1>Selamat Datang di Halaman Beranda</h1>
-</header>
+    <script>
+        document.getElementById('fetchDataButton').addEventListener('click', fetchData);
 
-<nav>
-    <a href="index.php">Beranda</a>
-    <a href="about.php">Tentang</a>
-    <a href="contact.php">Kontak</a>
-</nav>
-
-<div class="content">
-    <h2>Halo, Guysss!</h2>
-    <p>Ini adalah contoh halaman beranda menggunakan PHP dan HTML.</p>
-    <p>Kamu bisa menambahkan konten sesuai kebutuhanmu di sini.</p>
-</div>
-
-<footer>
-    <p>&copy; 2025 Nama Anda. Hak Cipta Dilindungi.</p>
-</footer>
-
+        function fetchData() {
+            fetch('https://api.example.com/data', {
+                method: 'GET', // atau 'POST', 'PUT', 'DELETE', dsb.
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer token' // jika memerlukan autentikasi
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('result').innerHTML = JSON.stringify(data, null, 2);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
 </body>
 </html>
