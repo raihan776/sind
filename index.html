@@ -1,25 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contoh CURL dengan JavaScript</title>
 </head>
 <body>
-    <h1>Contoh CURL dengan JavaScript</h1>
-    <button id="fetchDataButton">Fetch Data</button>
+    <h1>Contoh CURL dengan JavaScript (POST)</h1>
+    <button id="fetchDataButton">Kirim Data</button>
     <div id="result"></div>
 
     <script>
         document.getElementById('fetchDataButton').addEventListener('click', fetchData);
 
         function fetchData() {
-            fetch('https://www.google.com/', {
-                method: 'GET', // atau 'POST', 'PUT', 'DELETE', dsb.
+            // Data yang akan dikirim
+            const data = {"refresh_token":"eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJkNTZkNmQ0ZC0wNTNiLTQ0NGMtOTgyZC1kOWJjYzBmMmJlNzEiLCJzdWIiOiI1N2VlYmE1MS1mZGY4LTQzYmMtODViZC1iYjk5MWJlNGI4NjgiLCJ0eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM5OTQwMzY2fQ.o_kXlaXSRfKjHm5XVDmxlC_yhYcgTmCklX8_ze0NcAX5sRudU-u2gqv-gBdqYIMMjeF5VEqGBzaY27SOsLaXAA"};
+
+            fetch('https://www.sidrachain.com/api/auth/token/refresh/', {
+                method: 'POST', // Metode POST
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': 'Bearer token' // jika memerlukan autentikasi
-                }
+                    'User-Agent': 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36'
+                },
+                body: JSON.stringify(data) // Konversi data ke format JSON
             })
             .then(response => response.json())
             .then(data => {
